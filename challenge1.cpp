@@ -3,6 +3,8 @@
 #include <utility>
 #include<cstdlib>
 
+//Run the programm by writign this command in the terminal -> ./challenge1
+
 
 using namespace std;
  
@@ -39,20 +41,16 @@ vector<pair<int,int> > DDALine(int x0, int y0, int x1, int y1){
         points.push_back(make_pair(x,y));
  
 
-        //cout << x << " " << y << "\n";
         x += x_incr;
         y += y_incr;
     }
-        //cout << x << " " << y << "\n";    
         points.push_back(make_pair(x,y));
         return points;
 
 }
  
-// Driver code
 int main(){
     vector<pair<int,int> > points;
-    // Function call
     points = DDALine(2,3,9,100);
     for(int i = 0; i < points.size(); i++){
             cout << "(" << points[i].first <<  ", "  << points[i].second << ")";
