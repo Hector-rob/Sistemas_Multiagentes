@@ -1,22 +1,13 @@
+
+//Run the programm by writign this command in the terminal -> ./challenge1
+
 #include <iostream>
 #include <vector>
 #include <utility>
 #include<cstdlib>
 
-//Run the programm by writign this command in the terminal -> ./challenge1
-
-
 using namespace std;
  
-// function for rounding off the pixels
-int round2(float n)
-{
-    if (n - (int)n < 0.5)
-        return (int)n;
-    return (int)(n + 1);
-}
- 
-// Function for line generation
 vector<pair<int,int> > DDALine(int x0, int y0, int x1, int y1){
     vector<pair<int,int> > points;
  
