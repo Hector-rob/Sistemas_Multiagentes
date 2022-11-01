@@ -1,34 +1,63 @@
 #include <iostream>
+#include <vector>
+#include <utility>
+#include<cstdlib>
+
 
 using namespace std;
-
- void approximatePoints(int x1, int y1, int x2, int y2){
-
-    int dx = x2 - x1;
-    int dy = y2 - y1;
  
-   
- 
-    for (int x = x1; x <= x2; x++) {
-        // Assuming that the round function finds
-        // closest integer to a given float.
-        int y = y1 + dy * (x - x1);
- 
-        cout << "(" + to_string(x) + ", " + to_string(y) + ")";
-    }
+// function for rounding off the pixels
+int round2(float n)
+{
+    if (n - (int)n < 0.5)
+        return (int)n;
+    return (int)(n + 1);
 }
+ 
+// Function for line generation
+vector<pair<int,int> > DDALine(int x0, int y0, int x1, int y1){
+    vector<pair<int,int> > points;
+ 
+    int dx = x1 - x0;
+    int dy = y1 - y0;
+ 
+    int step;
+ 
+    
+    if (abs(dx) > abs(dy))
+        step = abs(dx);
+    else
+        step = abs(dy);
+ 
+    float x_incr = (float)dx / step;
+    float y_incr = (float)dy / step;
+ 
+    float x = x0;
+    float y = y0;
+ 
+    for (int i = 0; i < step; i++) {
+        points.push_back(make_pair(x,y));
+ 
 
+        //cout << x << " " << y << "\n";
+        x += x_incr;
+        y += y_incr;
+    }
+        //cout << x << " " << y << "\n";    
+        points.push_back(make_pair(x,y));
+        return points;
 
+}
+ 
+// Driver code
 int main(){
+    vector<pair<int,int> > points;
+    // Function call
+    points = DDALine(2,3,9,100);
+    for(int i = 0; i < points.size(); i++){
+            cout << "(" << points[i].first <<  ", "  << points[i].second << ")";
 
-    approximatePoints(3,4,8,9);
-
-   
-
-
-
-
-
-
+    }
+ 
     return 0;
 }
