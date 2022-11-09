@@ -56,7 +56,7 @@ int main (int argc, char** argv)
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);    // Set display mode.
     glutInitWindowPosition (50, 100);    // Set top-left display-window position.
     glutInitWindowSize (400, 400);    // Set display-window width and height.
-    glutCreateWindow ("An Example OpenGL Program"); // Create display window.
+    glutCreateWindow ("Challenge 3"); // Create display window.
     init (); // Execute initialization procedure.
     glutDisplayFunc(lineSegment);    // Send graphics to display window.
     //glutDisplayFunc (points);
